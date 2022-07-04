@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 from sys import argv
-from calculator_1.py import*
+import calculator_1.py 
 if __name__ == "__maine__":
     a = int(argv[1])
     b = int(argv[3])
@@ -14,3 +14,5 @@ if __name__ == "__maine__":
         print('{} * {} = {}'.format(a, b, mul(a, b)))
     elif arg[2] == "/":
         print('{} - {} = {}'.format(a, b, div(a, b)))
+    else:
+        print("Unknown operator. Available operators: +, -, * and /")
