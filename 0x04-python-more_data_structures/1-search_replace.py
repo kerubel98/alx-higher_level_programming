@@ -1,8 +1,4 @@
 #!/usr/bin/python3
 def search_replace(my_list, search, replace):
-    for i in range(0, len(my_list)):
-        if my_list[i] == search:
-            my_list[i] = replace
-            return my_list
-        else:
-            return my_list
+    list_t = [replace if i == search else i for i in my_list]
+    return list_t
