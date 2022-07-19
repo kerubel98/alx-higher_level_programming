@@ -3,10 +3,10 @@ def safe_print_list_integers(my_list=[], x=0):
     n, i = 0, 0
     while i < x:
         try:
-            print(":d".format(my_list[i]))
+            print("{:d}".format(my_list[i]), end='')
             n += 1
-        except (ValueError, TypeError):
+        except (TypeError, ValueError):
             pass
         i += 1
-        print()
-        return n
+    print()
+    return n
