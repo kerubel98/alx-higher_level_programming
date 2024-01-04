@@ -88,4 +88,4 @@ class Rectangle:
             wid += "#"
         for i in range(self.height):
             lin += wid + "\n"
-        return lin[:len(lin) -1]
+        return lin[:len(lin) - 1]
