@@ -87,5 +87,5 @@ class Rectangle:
         for i in range(self.__width):
             wid += "#"
         for i in range(self.height):
-            lin.append(wid + "\n")
+            lin += wid + "\n"
         return lin
