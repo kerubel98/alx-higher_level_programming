@@ -74,4 +74,18 @@ class Rectangle:
         """
         if self.__width == 0 or self.__height == 0:
             return 0
-        return self.__width + self.__height
+        return (2 * (self.__width + self.__height))
+
+    def __str__(self):
+        """
+        printes "#" perimeter of rect
+        """
+        if self.__width == 0 or self.__height == 0:
+            return ""
+        wid = ""
+        lin = ""
+        for i in range(self.__width):
+            wid += "#"
+        for i in range(self.height):
+            lin.append(wid + "\n")
+        return lin
