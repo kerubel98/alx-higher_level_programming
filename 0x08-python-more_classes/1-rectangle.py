@@ -6,13 +6,13 @@ Rectangle module definition
 
 class Rectangle:
     """
-    Rectangel class 
+    Rectangel class
     """
     def __init__(self, width=0, height=0):
-         """
-         constructor
-         Args:
-             width (int): width of rectangle
+        """
+        constructor
+        Args:
+            width (int): width of rectangle
             height (int): height of rectangle
          """
 
