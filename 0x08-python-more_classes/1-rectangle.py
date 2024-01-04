@@ -1,22 +1,23 @@
 #!/usr/bin/python3
-"""rectangel class"""
+"""
+Rectangle module definition
+"""
 
 
 class Rectangle:
-    """Rectangel class """
+    """
+    Rectangel class 
+    """
     def __init__(self, width=0, height=0):
+         """
+         constructor
+         Args:
+             width (int): width of rectangle
+            height (int): height of rectangle
+         """
 
-        """constractor
-
-        Args:
-            width
-            height
-        Raises:
-            TypeError: if width or height not integer
-            ValueError: if width or height less than zero
-        """
-        self.width = width
-        self.height = height
+        self.__width = width
+        self.__height = height
 
     @property
     def width(self):
