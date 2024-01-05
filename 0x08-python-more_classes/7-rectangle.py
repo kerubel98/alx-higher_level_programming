@@ -85,15 +85,15 @@ class Rectangle:
         """
         printes "#" perimeter of rect
         """
+        ret = ""
         if self.__width == 0 or self.__height == 0:
             return ""
-        wid = ""
-        lin = ""
-        for i in range(self.__width):
-            wid += self.print_symbol
-        for i in range(self.height):
-            lin += wid + "\n"
-        return lin[:len(lin) - 1]
+    
+        for idx in range(self.__height):
+            ret += str(self.print_symbol) * self.width
+            if idx + 1 < self.__height:
+                ret += '\n'
+        return ret
 
     def __repr__(self):
         """return string rep"""
