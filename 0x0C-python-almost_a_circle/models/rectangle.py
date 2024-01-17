@@ -1,18 +1,14 @@
 #!/usr/bin/python3
-"""class Rectangele that inhernt from Base"""
+"""Class Rectangle that inherits from class Base"""
 from models.base import Base
 
 
 class Rectangle(Base):
-    """Rectangel class"""
+    """Class that inherits from class Base"""
+
     def __init__(self, width, height, x=0, y=0, id=None):
-        """intilaises Rectangel obj
-        Args:
-            width: privet instance attribut
-            height: private instance attribut
-            x: private instance attribute
-            y: private inatnce attribute
-        """
+        """Initializes class Rectangle"""
+
         self.width = width
         self.height = height
         self.x = x
@@ -20,29 +16,19 @@ class Rectangle(Base):
         super().__init__(id)
 
     def __str__(self):
-        """overrides the __str__ method"""
+        """Overrides the __str__ method so it returns something else"""
 
-        return ("[Rectangle]({}) {}/{} - {}/{}".format(self.id, self.__x, self.__y, self.__width, self.__height))
-    
-    def area(self):
-        """Retuns area"""
-        
-        return self.__width * self.__height
+        return ("[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.__x,
+                                                        self.__y, self.__width,
+                                                        self.__height))
 
-    def display(self):
-        """prints in stdout the Rectangle instance with the character #"""
+    def to_dictionary(self):
+        """Returns a dictionary representation of Rectangle"""
 
-        rectw = ""
-        spc = ""
-        for x in range(self.__x):
-            spc += " "
-        for x in range(self.__width):
-            rectw += "#"
-        rectw = spc + rectw + "$"
-        for x in range(self.__y):
-            print("$")
-        for x in range(self.__height):
-            print(rectw)
+        d = {"id": self.id, "width": self.__width, "height": self.__height,
+             "x": self.__x, "y": self.__y}
+
+        return d
 
     def update(self, *args, **kwargs):
         """Takes in multiple arguments and updates attributes
@@ -50,17 +36,38 @@ class Rectangle(Base):
             *args: multiple arguments
             **kwargs: dictionary arguments
         """
-        attr = ["id", "width", "height", "x", "y"]
-        for keys in range(len(args)):
-            for atr in range(len(attr)):
-                if atr == keys:
-                    setattr(self, attr[atr], args[keys])
-                    break
-        if not args or len(args) == 0:
-            for x in range(len(attr)):
-                if attr[x] in kwargs:
-                    setattr(self, attr[x], kwargs[attr[x]])
 
+        attrs = ["id", "width", "height", "x", "y"]
+        for elem in range(len(args)):
+            for attr in range(len(attrs)):
+                if attr == elem:
+                    setattr(self, attrs[attr], args[elem])
+                    break
+
+        if not args or len(args) == 0:
+            for key, val in kwargs.items():
+                for attr in range(len(attrs)):
+                    if key == attrs[attr]:
+                        setattr(self, attrs[attr], val)
+                        break
+
+    def area(self):
+        """Returns the area of a rectangle"""
+
+        return self.__width * self.__height
+
+    def display(self):
+        """Prints a representation of the rectangle with '#'"""
+
+        for space in range(self.__y):
+            print("")
+
+        for row in range(self.__height):
+            for move in range(self.__x):
+                print(" ", end="")
+            for col in range(self.__width):
+                print("#", end="")
+            print("")
 
     @property
     def width(self):
